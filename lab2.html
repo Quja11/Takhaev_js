@@ -1,0 +1,91 @@
+<html>
+<head>
+	<title>1 задание</title>
+<script type="text/javascript" src = "jquery.js"></script>
+
+<script type="text/javascript">
+	$(document).ready(function(){
+
+		$(".btn-slide").click(function(){
+			$("#panel").slideToggle("slow");
+			$(this).toggleClass("active");
+		});
+
+		$(".pane .delete").click(function(){
+			$(this).parents(".pane").animate({opacity: "hide"}, "slow");
+		});
+		
+		$(".run").click(function(){
+			$("#box").animate({opacity: "0.1", left: "+=400"}, 1200)
+			.animate({opacity: "0.4", top: "+=160", height: "40", width: "40"}, "slow")
+			.animate({opacity: "1", left: "0", height: "50", width: "100"}, "slow")
+			.animate({top: "0"}, "fast")
+			.slideUp()
+			.slideDown("slow")
+			return false;
+		});
+
+
+	});
+
+</script>
+
+<style>
+		.delete{
+			color: #ff00ff;
+			position: relative;
+			top: 20px;
+			left: 1220px;
+		}
+		.pane{
+			color: #008080;
+		}
+		
+		.control_block_container{
+			background: #fc0;
+			width: 500px;
+			height: 140px;
+			border: solid 3px black; 
+		}
+		.box{
+			position: relative;
+			top: 20px;
+			background: red;
+			border: solid 3px black; 
+		}
+
+		
+
+	</style>
+
+</head>
+
+<body>
+	<!--1 задание-->
+	<div class = "wrapper">
+		<div id = "panel">
+				Выдвижная панель
+		</div>
+		<button class = "btn-slide">Нажми!</button>
+	</div>
+
+	<!--2 задание-->
+	<div class = "pane">
+		<span class = "delete">X</span>
+		<p>jQuery - библиотека Javascript, фокусирующаяся на взаимодействии Javascript и HTML. Библиотека jQuery помогает легко получать доступ к любому элементу DOM, обращатьяс к атрибутам и содержимому элементов DOM, манипулировать ими. Также библиотека jQuery предоставляет удобный API при работе с AJAX.</p>
+	</div>
+
+	<!--Управление элементом на странице(задание 3)-->
+	<button class = "run">Начать движение</button>	
+	<div class = "control_block_container">
+		<div id = "box">Управляемый блок</div>
+	</div>
+	
+
+	
+
+</body>
+
+
+
+</html>

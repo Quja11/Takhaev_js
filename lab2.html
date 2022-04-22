@@ -25,6 +25,8 @@
 			return false;
 		});
 
+		
+
 
 	});
 
@@ -34,24 +36,26 @@
 		.delete{
 			color: #ff00ff;
 			position: relative;
-			top: 20px;
 			left: 1220px;
 		}
 		.pane{
 			color: #008080;
+			border: 4px ridge black;
 		}
 		
 		.control_block_container{
 			background: #fc0;
-			width: 500px;
-			height: 140px;
+			position: absolute;
+			width: 700px;
+			height: 340px;
 			border: solid 3px black; 
 		}
-		.box{
+
+		#box{
 			position: relative;
-			top: 20px;
-			background: red;
-			border: solid 3px black; 
+			width: 150px;
+			height: 150px;
+			background: green;
 		}
 
 		
@@ -61,27 +65,28 @@
 </head>
 
 <body>
+
 	<!--1 задание-->
+	<p>1 Задание</p>
 	<div class = "wrapper">
-		<div id = "panel">
-				Выдвижная панель
-		</div>
+		<div id = "panel"> Выдвижная панель </div>
 		<button class = "btn-slide">Нажми!</button>
 	</div>
 
 	<!--2 задание-->
+	<p>2 Задание</p>
 	<div class = "pane">
 		<span class = "delete">X</span>
-		<p>jQuery - библиотека Javascript, фокусирующаяся на взаимодействии Javascript и HTML. Библиотека jQuery помогает легко получать доступ к любому элементу DOM, обращатьяс к атрибутам и содержимому элементов DOM, манипулировать ими. Также библиотека jQuery предоставляет удобный API при работе с AJAX.</p>
+		<p>jQuery - библиотека Javascript, фокусирующаяся на взаимодействии Javascript и HTML. Библиотека jQuery помогает легко получать доступ к любому элементу DOM, обращаться к атрибутам и содержимому элементов DOM, манипулировать ими. Также библиотека jQuery предоставляет удобный API при работе с AJAX.</p>
 	</div>
 
 	<!--Управление элементом на странице(задание 3)-->
+	<p>3 Задание</p>
 	<button class = "run">Начать движение</button>	
 	<div class = "control_block_container">
 		<div id = "box">Управляемый блок</div>
 	</div>
 	
-
 	
 
 </body>

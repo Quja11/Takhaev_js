@@ -16,14 +16,28 @@
 		});
 		
 		$(".run").click(function(){
-			$("#box").animate({opacity: "0.1", left: "+=400"}, 1200)
-			.animate({opacity: "0.4", top: "+=160", height: "40", width: "40"}, "slow")
-			.animate({opacity: "1", left: "0", height: "50", width: "100"}, "slow")
+			$("#box").animate({opacity: "0.1", left: "+=550"}, 1200)
+			.animate({opacity: "0.4", top: "+=190", height: "150", width: "150"}, "slow")
+			.animate({opacity: "1", left: "0", height: "150", width: "150"}, "slow")
 			.animate({top: "0"}, "fast")
-			.slideUp()
+			.slideUp("slow")
 			.slideDown("slow")
 			return false;
 		});
+
+		$(".accordion h3:first").addClass("active");
+		$(".accordion p:not(:first)").hide();
+		$(".accordion h3").click(function(){
+			$(this).next("p").slideToggle("slow")
+			.siblings("p:visible").slideUp("slow");
+			$(this).toggleClass("active");
+			$(this).siblings("h3").removeClass("active");
+		});
+
+
+
+
+		
 
 		
 
@@ -48,7 +62,8 @@
 			position: absolute;
 			width: 700px;
 			height: 340px;
-			border: solid 3px black; 
+			border: solid 3px black;
+			opacity: 0.5; 
 		}
 
 		#box{
@@ -58,8 +73,33 @@
 			background: green;
 		}
 
-		
+		.accordion{
+			position: absolute;
+			left: 900px;
+			top: 295px;
+			background: #5F9EA0;
+			width: 340px;
+			height: 340px;
+			text-align: center;
+		}
 
+		#pr{
+			position: absolute;
+			left: 1040px;
+			top: 240px;
+
+		}
+		
+		.allh3{
+			position: relative;
+			border: 6px double #DAA520;
+			background: green;
+			color: white;
+		}
+
+		.allp{
+			background: white;
+		}
 	</style>
 
 </head>
@@ -86,8 +126,33 @@
 	<div class = "control_block_container">
 		<div id = "box">Управляемый блок</div>
 	</div>
+
 	
+	<!--4 задание (гармошка)-->
+	<p id="pr">4 Задание</p>
+	<div class="accordion">
+		<h3 class = "allh3">Первый заголовок</h3>
+		<p class = "allp"><b>Первый блок</b><br />jquery - библиотека</p>
+
+		<h3 class = "allh3">Второй заголовок</h3>
+		<p class = "allp"><b>Первый блок</b><br />jquery - библиотека</p>
+
+		<h3 class = "allh3">Третий заголовок</h3>
+		<p class = "allp"><b>Первый блок</b><br />jquery - библиотека</p>
+	</div>
 	
+
+
+
+
+
+
+
+
+
+
+
+
 
 </body>
 

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>3 Задание</title>
+<script src = "jquery.js"></script>
+
+<script>
+
+	$(document).ready(function(){
+
+	$("#leftt").click(function(){
+			$("#Imga").animate({left: "-=50"}, 1000)
+			return false;
+		});
+
+	$("#rightt").click(function(){
+			$("#Imga").animate({right: "-=50"}, 1000);
+			
+		});
+
+	$("#up").click(function(){
+			$("#Imga").animate({top: "-=50"}, 1000)
+			return false;
+		});
+
+	$("#down").click(function(){
+			$("#Imga").animate({bottom: "-=50"}, 1000)
+			return false;
+		});
+
+});
+
+
+
+
+
+
+
+
+
+
+</script>
+
+<style>
+	
+	.Upr{
+		position: absolute;
+		top: 720px;
+		left: 400px;
+		background: #9ACD32;
+		width: 500px;
+		height: 200px;
+	}
+
+	#up{
+		position: absolute;
+		top: 30px;
+		left: 210px;
+	}
+
+	#down{
+		position: absolute;
+		top: 150px;
+		left: 215px;
+	}
+
+	#leftt{
+		position: absolute;
+		top: 90px;
+		left: 50px;
+	}
+
+	#rightt{
+		position: absolute;
+		top: 93px;
+		left: 400px;
+	}
+
+	.Fieldspace{
+		position: absolute;
+		height: 710px;
+		width: 1265px;
+		background: #4682B4;
+	}
+
+	#Imga{
+		position: relative;
+		
+	}
+
+	
+
+
+</style>
+
+
+
+</head>
+<body>
+
+<div class = "Fieldspace">
+		<img src = "spaceship.jpg" height = "100px" width = "100px" id = "Imga">
+</div>
+
+<div class = "Upr">
+	<button id = "up">Вверх</button>
+	<button id = "down">Вниз</button>
+	<button id = "leftt">Влево</button>
+	<button id = "rightt">Вправо</button>
+</div>
+
+
+
+
+
+
+</body>
+</html>

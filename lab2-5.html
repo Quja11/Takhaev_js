@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>4 Задание</title>
+<script src = "jquery.js"></script>
+
+<script>
+	$(document).ready(function(){
+
+		$("#first").mousedown(function(){
+			$(this).hide(3000);
+		});
+
+		
+
+
+
+	});
+
+</script>
+
+<style>
+	.fzona{
+		position: absolute;
+		width: 500px;
+		height: 500px;
+		top: 200px;
+		
+		background: black;	
+	}
+
+	.szona{
+		position: absolute;
+		width: 500px;
+		height: 500px;
+		left: 600px;
+		top: 200px;
+
+		background: orange;
+	}
+
+
+
+
+
+
+
+</style>
+</head>
+<body>
+
+
+<button id = "first">1 элемент</button>
+<button id = "second">2 элемент</button>
+
+<div class = "fzona"></div>
+<div class = "szona"></div>
+
+
+
+
+</body>
+</html>

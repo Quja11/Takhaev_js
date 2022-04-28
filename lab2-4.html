@@ -1,25 +1,19 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<title>4 Задание</title>
-<script src = "jquery.js"></script>
-
-<script>
+	<head><title>4 задание</title>
+		<script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+		<script>
 	$(document).ready(function(){
-		
+
+	  $(document).mousemove(function(event){ 
+	    $("div:first").text("Координаты по x: " + event.pageX); 
+	    $("div:last").text("Координаты по y: " + event.pageY);
+	  });
 	});
-
-</script>
-</head>
-<body>
-
-
-<input onmousemove="this.value=event.clientX+':'+event.clientY" value="Наведи на меня мышь">
-
-
-
-
-
-
-</body>
+		</script>
+	</head>
+	<body>
+		<div></div>
+		<div></div>
+	</body>
 </html>

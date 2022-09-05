@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>6 Задание</title>
+	<meta charset="utf8">
+<script src = "jquery.js"></script>
+
+</head>
+<body>
+
+<p><b>Опрос:</b></p>
+
+<div class="opros">
+<form name = "user">
+
+	<p> 
+		Сколько всего океанов?:
+		<input type = "checkbox" class="ocean">5
+		<input type = "checkbox" class="ocean" >6
+	</p>
+	
+	<p>
+		Арбуз это?:
+		<input type = "checkbox" name = "arbuz">Фрукт
+		<input type = "checkbox" name = "arbuz">Ягода
+	</p>
+
+	<button type = "button" onclick="Ras();" >Рассчитать</button>
+	<button type = "reset" >Очистить</button>
+
+</form>
+</div>
+<div id="res"></div>
+
+<script>
+var countPeople = 0;
+var first = 0, second = 0;
+
+
+var x = document.getElementsByClassName("ocean");
+var y = document.getElementsByClassName("arbuz");
+
+function Ras(){
+	countPeople++;
+	
+	for(var z = 0; z < x.length; z++){
+		if(z % 2 == 0 && x[z].checked) first++;
+		if(z % 2 != 0 && x[z].checked) second++;
+	}
+
+	for(var q = 0; q < y.length; q++){
+		if(q % 2 == 0 && y[q].checked) first++;
+		if(q % 2 != 0 && y[q].checked) second++;
+	}
+	
+	//console.log(countPeople);
+	//console.log(first);
+	//console.log(second);
+
+	var relation1 = first / countPeople * 100;
+	var relation2 = second / countPeople * 100;
+	console.log(relation1);
+	console.log(relation2);
+
+	document.getElementById("res").innerHTML = `Количество проголосовавших: ${countPeople}<br>
+	Процентаж 1 группы: ${relation1}<br>
+	Процентаж 2 группы: ${relation2}`;
+
+}
+
+
+
+
+/*
+// 5 человек за 1 варинат, 10 человек за 2 вариант 15 - 100 5 - x 15x = 500 x = 500\15 33 x% = 1kasta /count
+p.innerHTML = `Количество проголосававших: ${countPeople}`;
+p1.innerHTML = `Процентное соотношение:<br>
+Первый вариант ответа: ${ps1}<br>
+Второй вариант ответа: ${ps2}`;
+document.getElementById("res").appendChild(p);
+document.getElementById("res").appendChild(p1);
+*/
+</script>
+</body>
+</html>

@@ -2,68 +2,25 @@
 <html>
 <head>
 	<title>2 Задание</title>
+	<meta charset="utf8">
 <script src = "jquery.js"></script>
-<script>
-	
-function doSend(){
-	
-	if(document.user.f.value == ""){
-		alert("Вы не заполнилил поле имени, оно обязательно к заполнению");
-		document.user.f.style.backgroundColor = "red";
-	}
-	
-	if(document.user.pw.value.length == "" || document.user.pw.value.length < 5){
-		alert("Вы не ввели пароль или ваш пароль содержит меньше 4ех символов" + document.user.pw.value.length);
-		document.user.pw.style.backgroundColor = "red";
-
-	}
-
-	if(document.user.pw.value == document.user.ppw.value){
-		alert("Ваши пароли совпадают");
-		document.user.ppw.style.backgroundColor = "red";
-	}
-
-	if(document.user.email == "" || (document.user.email.value.indexOf("@", -1) == -1)){
-		alert("Вы не указали вашу почту, или неверный формат почты");
-		document.user.email.style.backgroundColor = "red";
-	}
-
-	if(document.user.sms == "" || document.user.sms.value.length < 11){
-		alert("Вы не указали сообщение или ваше сообщение меньше 10 символов");
-		document.user.sms.style.backgroundColor = "red";
-	}
-
-
-
-
-
-}
-
-</script>
-
 <style>
-	
 	.fm{
 		position: absolute;
 		top: 50px;
+		left: 450px;
 		background: orange;
 		width: 320px;
 		height: 320px;
-		
-
 	}
 
 	#abz{
 		position: absolute;
-		left: 70px;
+		left: 510px;
 	}
-
-
 </style>
-
-
-
 </head>
+
 <body>
 
 <p id = "abz"><b>Форма заполнения данных:</b></p>
@@ -71,29 +28,50 @@ function doSend(){
 <div class="fm">
 <form name = "user">
 
-	<p>Ваше имя<sup>*</sup>: <input type = "text" name = "f" value = "Семен"><br><br>
-	Пароль<sup>*</sup>: <input type = "password" name = "pw"><br><br>
-	Подтверждение пароля<sup>*</sup>: <input type = "password" name = "ppw"><br><br>
-	Email<sup>*</sup>: <input type = "text" name = "email" value = "semen@bk.ru"><br><br>
-	Тема сообщения: <input type = "text" value = "Природа"><br><br>
-	Сообщение: <input type = "text" name = "sms" value = "Природа является главным источником жизни на Земле"></p>
+	<p>Ваше имя<sup>*</sup>: <input type = "text" name = "f" onfocus="this.style.backgroundColor = ''"></p>
+	<p>Пароль<sup>*</sup>: <input type = "password" name = "pw" onfocus="this.style.backgroundColor = ''"></p>
+	<p>Подтверждение пароля<sup>*</sup>: <input type = "password" name = "ppw" onfocus="this.style.backgroundColor = ''"></p>
+	<p>Email<sup>*</sup>: <input type = "text" name = "email" value = "semen@bk.ru" onfocus="this.style.backgroundColor = ''"></p>
+	<p>Тема сообщения: <input type = "text" value = "Природа"></p>
+	<p>Сообщение: <input type = "text" name = "sms"></p>
 
 	<p>
-	<button type = "submit" onclick="doSend()">Отправить</button>
+	<button onclick="Check();" type="button">Отправить</button>
 	<button type = "reset">Очистить</button>
 	</p>
 
 </form>
 </div>
 
+<script>
+	function Check(){
+		var x = document.forms.user.elements;
+		if(x[0].value == ""){
+			alert('Вы не ввели ваше имя');
+			x[0].style.backgroundColor = 'red';
+		}
 
+		if(x[1].value == "" || x[1].value.length < 5){
+			alert("Неверный пароль");
+			x[1].style.backgroundColor = 'red';
+		}
 
+		if(x[1].value != x[2].value){
+		 alert("Ваши пароли не совпадают");
+		 x[2].style.backgroundColor = 'red';
+		}
 
+		if(x[3].value == "" || x[3].value.indexOf("@") == -1){
+		 alert("Вы не ввели email");
+		 x[3].style.backgroundColor = 'red';
+		}
 
+		if(x[5].value == ""){
+		 alert("Вы не заполнили поле сообщения");
+		 x[5].style.backgroundColor = 'red';
+		}
+	}
 
-
-
-
-
+</script>
 </body>
 </html>

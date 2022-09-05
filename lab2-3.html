@@ -2,45 +2,8 @@
 <html>
 <head>
 	<title>3 Задание</title>
+	<meta charset="utf8">
 <script src = "jquery.js"></script>
-
-<script>
-
-	$(document).ready(function(){
-
-	$("#leftt").click(function(){
-			$("#Imga").animate({left: "-=100"}, 1000)
-			return false;
-		});
-
-	$("#rightt").click(function(){
-			$("#Imga").animate({right: "-=100"}, 1000);
-			
-		});
-
-	$("#up").click(function(){
-			$("#Imga").animate({top: "-=100"}, 1000)
-			return false;
-		});
-
-	$("#down").click(function(){
-			$("#Imga").animate({bottom: "-=100"}, 1000)
-			return false;
-		});
-
-});
-
-
-
-
-
-
-
-
-
-
-</script>
-
 <style>
 	
 	.Upr{
@@ -76,7 +39,7 @@
 		left: 400px;
 	}
 
-	.Fieldspace{
+	#Fieldspace{
 		position: absolute;
 		height: 710px;
 		width: 1265px;
@@ -84,21 +47,16 @@
 	}
 
 	#Imga{
-		position: relative;
-		
+		position: fixed;
+		left: 570px;
+		top: 250px;
 	}
 
-	
-
-
 </style>
-
-
-
 </head>
 <body>
 
-<div class = "Fieldspace">
+<div id = "Fieldspace">
 		<img src = "spaceship.jpg" height = "100px" width = "100px" id = "Imga">
 </div>
 
@@ -109,10 +67,40 @@
 	<button id = "rightt">Вправо</button>
 </div>
 
+<script>
 
+	$(document).ready(function(){
 
+	$("#up").click(function(){
+		$("#Imga").animate({
+			top: "-=100",
+	    });
+	});
 
+	$("#down").click(function(){
+	    $("#Imga").animate({
+			top: "+=100",
+			
+		});
+	});
 
+	$("#leftt").click(function(){
+	    $("#Imga").animate({
+			left: "-=100",
+			
+		});
+	});
+
+	$("#rightt").click(function(){
+	    $("#Imga").animate({
+			left: "+=100",
+			
+		});
+	});
+		
+
+	});
+</script>
 
 </body>
 </html>

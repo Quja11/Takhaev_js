@@ -1,63 +1,54 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>4 Задание</title>
+	<title>5 Задание</title>
+	<meta charset="utf8">
 <script src = "jquery.js"></script>
-
-<script>
-	$(document).ready(function(){
-
-		$("#first").mousedown(function(){
-			$(this).hide(3000);
-		});
-
-		
-
-
-
-	});
-
-</script>
-
 <style>
-	.fzona{
+	#drag{
 		position: absolute;
-		width: 500px;
-		height: 500px;
-		top: 200px;
-		
-		background: black;	
+		width: 200px;
+		height: 100px;
+		left: 500px;
+		top: 300px;
+		background: green;
 	}
-
-	.szona{
-		position: absolute;
-		width: 500px;
-		height: 500px;
-		left: 600px;
-		top: 200px;
-
-		background: orange;
-	}
-
-
-
-
-
-
-
 </style>
 </head>
 <body>
 
+<div id = "drag">Drag and drop me!</div>
 
-<button id = "first">1 элемент</button>
-<button id = "second">2 элемент</button>
+<script>
+ball = document.getElementById("drag");
 
-<div class = "fzona"></div>
-<div class = "szona"></div>
+ball.onmousedown = function(event) { 
 
+ball.style.position = 'absolute';
+ball.style.zIndex = 1000;
 
+document.body.append(ball);
 
+moveAt(event.pageX, event.pageY);
 
+function moveAt(pageX, pageY) {
+  ball.style.left = pageX - ball.offsetWidth / 2 + 'px';
+  ball.style.top = pageY - ball.offsetHeight / 2 + 'px';
+}
+
+function onMouseMove(event) {
+  moveAt(event.pageX, event.pageY);
+}
+
+document.addEventListener('mousemove', onMouseMove);
+
+ball.onmouseup = function() {
+  document.removeEventListener('mousemove', onMouseMove);
+  ball.onmouseup = null;
+};
+
+};
+
+</script>
 </body>
 </html>

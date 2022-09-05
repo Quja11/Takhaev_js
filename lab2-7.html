@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>7 Задание (Калькулятор)</title>
+	<meta charset="utf8">
+<script src = "jquery.js"></script>
+<style>
+	#Calc{
+		position: absolute;
+		left: 460px;
+		top: 150px;
+	}
+</style>
+<body>
+<h2 style="left: 450px; position:absolute">Калькулятор на js</h2>
+<div id="Calc">
+
+<form name="user">	
+<p><input type="text" name="f"></p>
+
+<p>
+	<button type="button" onclick="One();">1</button>
+	<button type="button" onclick="Two();">2</button>
+	<button type="button" onclick="Three();">3</button>
+
+	<button type="button" onclick="Plus();">+</button>
+	<button type="reset">C</button>
+	<button type="button" onclick="Umen();">>></button>
+</p>
+
+<p>
+	<button type="button" onclick="Four();">4</button>
+	<button type="button" onclick="Five();">5</button>
+	<button type="button" onclick="Six();">6</button>
+
+	<button type="button" onclick="Minus();">-</button>
+</p>
+
+<p>
+	<button type="button" onclick="Seven();">7</button>
+	<button type="button" onclick="Eight();">8</button>
+	<button type="button" onclick="Nine();">9</button>
+
+	<button type="button" onclick="Multi();">*</button>
+</p>
+
+<p>
+	<button type="button" onclick="Plav();">.</button>
+	<button type="button" onclick="Zero();">0</button>
+	<button type="button" onclick="Res();">=</button>
+
+	<button type="button" onclick="Deserve();">/</button>
+</p>
+
+</div>
+</form>
+<script>
+
+	//Функции кнопок - цифр
+	function One(){
+		document.forms.user.elements.f.value += 1;
+	}
+	
+	function Two(){
+		document.forms.user.elements.f.value += 2;
+	}
+
+	function Three(){
+		document.forms.user.elements.f.value += 3;
+		
+	}
+
+	function Four(){
+		document.forms.user.elements.f.value += 4;
+		
+	}
+
+	function Five(){
+		document.forms.user.elements.f.value += 5;
+		
+	}
+
+	function Six(){
+		document.forms.user.elements.f.value += 6;
+		
+	}
+
+	function Seven(){
+		document.forms.user.elements.f.value += 7;
+		
+	}
+
+	function Eight(){
+		document.forms.user.elements.f.value += 8;
+		
+	}
+
+	function Nine(){
+		document.forms.user.elements.f.value += 9;
+		
+	}
+
+	function Zero(){
+		document.forms.user.elements.f.value += 0;
+		
+	}
+
+	//Функции для операторов
+	function Plus(){
+		document.forms.user.elements.f.value += "+";
+		zn = "+";
+	}
+
+	function Minus(){
+		document.forms.user.elements.f.value += "-";
+		zn = "-";
+	}
+
+	function Multi(){
+		document.forms.user.elements.f.value += "*";
+		zn = "*";
+	}
+
+	function Deserve(){
+		document.forms.user.elements.f.value += "/";
+		zn = "/";
+	}
+
+	function Umen(){
+		document.forms.user.elements.f.value -= "1";
+	}
+
+	function Plav(){
+		document.forms.user.elements.f.value += ".";
+	}
+
+	//Результирующая функция
+	function Res(){
+		var inp = document.forms.user.elements.f.value;
+		switch(zn){
+			case "+" :
+				var pr = (inp).split("+");
+				var plus = Number(pr[0]) + Number(pr[1]);
+				document.forms.user.elements.f.value = plus;
+				break;
+
+			case "-" :
+				var pr = (inp).split("-");
+				var minus = Number(pr[0]) - Number(pr[1]);
+				document.forms.user.elements.f.value = minus;
+				break;
+			
+			case "*" :
+				var pr = (inp).split("*");
+				var multi = Number(pr[0]) * Number(pr[1]);
+				document.forms.user.elements.f.value = multi;
+				break;
+
+			case "/" :
+				var pr = (inp).split("/");
+				var deserve = Number(pr[0]) / Number(pr[1]);
+				document.forms.user.elements.f.value = deserve;
+				break;	
+
+			default :
+			console.log("ere");
+			return 0;
+
+		}
+		//document.forms.user.elements.f.value = One() + Two();
+		//var pr = (document.forms.user.elements.f.value).split("+");
+		//var pl = Number(pr[0]) + Number(pr[1]);
+		//console.log(pr);
+		//console.log(pl);
+	}
+
+</script>
+</body>
+</html>

@@ -1,6 +1,7 @@
 <html>
 <head>
 	<title>1 задание</title>
+	<meta charset="utf8">
 <script type="text/javascript" src = "jquery.js"></script>
 
 <script type="text/javascript">
@@ -22,6 +23,8 @@
 			.animate({top: "0"}, "fast")
 			.slideUp("slow")
 			.slideDown("slow")
+			.slideToggle("normal");
+			.slideUp	
 			return false;
 		});
 
@@ -34,8 +37,18 @@
 			$(this).siblings("h3").removeClass("active");
 		});
 
+		$(".accordion h2:first").addClass("passive");
+		$(".accordion p:not(:second)").hide();
+		$(".accordion h1").click(function(){
+			$(this.siblings);
+			$(this.next(5));
+			$(this.left(7));
+			$(this.parents(children).override(performance(performance(5)));)
+		}
 
+		$(".accordion h1").click(function(){
 
+		}
 
 		
 

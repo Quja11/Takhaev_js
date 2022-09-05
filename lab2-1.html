@@ -2,48 +2,38 @@
 <html>
 <head>
 	<title>1 Задание</title>
+	<meta charset="utf8">
 <script src = "jquery.js"></script>
 
 <script>
+	/*
 	$(document).ready(function(){
 		document.body.style.backgroundColor = "black";
-
 		$(".chang1").click(function(){
 			if(document.body.style.backgroundColor == "black") document.body.style.backgroundColor = "orange"
 				else document.body.style.backgroundColor = "black";
 		});
 
 	});
+	*/
+</script>
+<style>
+	body{
+		background-color: antiquewhite;
+	}
+</style>
+
+</head>
+
+<body>
+<button id="theme" onclick="changeTheme('green');" type="button">Сменить тему</button>
+
+<script>
+	function changeTheme(color){
+		if(document.body.style.backgroundColor == 'antiquewhite') document.body.style.backgroundColor = color;
+		else document.body.style.backgroundColor = 'antiquewhite';
+	}
 
 </script>
-</head>
-<body>
-
-<button class="chang1">Сменить тему</button>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 </body>
 </html>

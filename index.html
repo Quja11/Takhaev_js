@@ -1,8 +1,92 @@
+<!DOCTYPE html>
 <html>
-    <head>
+	<head>
+		<title>Пример использования jQuery функции $.get()</title>
+		<meta charset="utf8">
+		<script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 
-    </head>
-<body>
-    
-</body>
+	<script>
+	$(document).ready(function(){
+
+	var m = 0;
+		$("#cl").click(function(){
+		
+		$.ajax({
+			url : 'getdata_3.php',
+			data : {kol : 5, tk : m},
+			success : function(data){
+				m += 5;
+				if(m < 13){
+				var spl = data.split("<br>");
+				for(var z = 0; z < spl.length-1; z++){
+					var zag = document.createElement("h3");
+					zag.innerHTML = "Тема: шахматы";
+
+					var image = document.createElement("img");
+					image.src = "/source/chess.jpg";
+					image.style.position = "absolute";
+					image.style.width = "250px";
+					image.style.left = "900px";
+					
+					
+
+					var x = document.createElement("p");
+					var rod = document.getElementById("res");	
+					x.style.height = "180px";
+					x.style.backgroundColor = "#FFDAB9";
+					x.style.paddingTop = "90px";
+					
+
+					x.innerHTML = "<b>Новость:</b> " + spl[z];
+
+					x.appendChild(image);
+					rod.appendChild(zag);
+					rod.appendChild(x);
+					
+					console.log("Записей на данный момент: " + m);
+				}
+
+
+
+
+			}else console.log("Новости кончились");
+				
+			
+				
+
+			},
+			error : function(){
+				console.log("error")
+			}
+		});
+
+
+		});
+
+
+
+
+
+	  });
+
+
+		</script>
+	</head>
+	<body>
+		
+		
+		
+
+		<div id="res">
+			<p>Завершился суд между грузинской шахматисткой и Netflix</p>
+			<p>Обыгравший Карлсена шахматист признался, что в детстве жульничал в матчах</p>
+
+
+
+
+
+		</div>
+		<button id="cl">Добавить еще</button>
+		
+	</body>
 </html>

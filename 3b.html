@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Пример использования jQuery функции $.get()</title>
+		<meta charset="utf8">
+		<script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+
+	<script>
+	$(document).ready(function(){
+
+		$("#cl").click(function(){
+
+		//Код для добавления отзыва по кнопке Отправить
+		$.ajax({
+			url : 'setdata_3b.php',
+            dataType : "html",
+            data : {
+                name : document.user1.name.value,
+                email : document.user1.email.value,
+                tmsg : document.user1.tmsg.value
+            },
+			success : function(data){
+                alert("Ваш отзыв успешно принят"),
+                document.getElementById("res").innerHTML = data
+			},
+			error : function(){
+				console.log("error")
+			}
+		});
+        });
+
+        //Код для автомат.добавления отзывов
+        $.ajax({
+			url : 'getdata_3b.php',
+            dataType : "html",
+			success : function(data){
+                console.log(typeof data)
+                document.getElementById("allotzivy").innerHTML = data;
+			},
+			error : function(){
+				console.log("error")
+			}
+		});
+
+    });
+
+
+		</script>
+	</head>
+	<body>
+		<form name="user1">
+            <p>Ваше имя: <input name="name"></p>
+            <p>Ваш e-mail: <input name="email"></p>
+            <p>Текст сообщения: <input name="tmsg"></p>
+            <p>
+                <button type="button" id="cl">Отправить</button>
+                <button type="reset">Очистить</button>
+            </p>
+        </form>
+		
+        <div id="res"></div>
+        <div id="allotzivy" style="background-color: antiquewhite;"></div>
+
+
+	</body>
+</html>

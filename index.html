@@ -7,6 +7,25 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
         <script src="ui/jquery-ui.js"></script>
 
+
+
+
+
+
+        <style>
+            .ui-menu { width: 150px; } 
+            .ui-menu a{
+                display: block;
+                text-decoration: none;
+            }
+            .list-group-item{
+                cursor: move;
+            }
+            #draggable{
+                background-color: rgb(125, 223, 69);
+                width: 100px;
+            }
+        </style>
     </head>
 <body>
 
@@ -41,6 +60,103 @@
 
 <p>Date : <input type="text" id="kal"></p>
 
+<div id="dialog">
+    <p>Это диалоговое окно...</p>
+</div>
+<p><button id="open">Открыть м.окно</button></p>
+
+<p><select id="sel">
+    <option>Item 1</option>
+    <option>Item 1</option>
+    <option>Item 1</option>
+</select>
+</p>
+
+<p>
+    <ul id="menu">
+        <li><a href="#">Books</a></li>
+        <li><a href="#">Clothing</a></li>
+        <li><a href="#">Electronics</a>
+            <ul>
+                <li><a href="#">Computers</a></li>
+                <li><a href="#">Utilities</a></li>
+            </ul>
+        </li>
+        <li><a href="#">Movies</a></li>   
+    </ul>
+</p>
+
+<div class="content">
+    <div class="row">
+        <div class="col">
+            <form class="form-inline">
+
+                <div class="form-group">
+                    <label for="start">Начальная цена</label>
+                    <input type="text" class="form-control" id="start">
+                </div>
+
+                <div class="form-group">
+                    <label for="end">Конечная цена</label>
+                    <input type="text" class="form-control" id="end">
+                </div>
+
+            </form>
+            <div id="slider"></div>
+        </div>
+    </div>
+</div><br>
+
+<div id="tabs">
+    <ul>
+        <li><a href="#tabs1">Вкладка 1</a></li>
+        <li><a href="#tabs2">Вкладка 2</a></li>
+        <li><a href="#tabs3">Вкладка 3</a></li>
+        <li><a href="#tabs4">Вкладка 4</a></li>
+    </ul>
+
+    <div id="tabs1">
+        <h2>Контент вкладки 1</h2>
+        <p>Lorem 1</p>
+    </div>
+
+    <div id="tabs2">
+        <h2>Контент вкладки 2</h2>
+        <p>france</p>
+    </div>
+
+    <div id="tabs3">
+        <h2>Контент вкладки 3</h2>
+        <p>Paris</p>
+    </div>
+
+    <div id="tabs4">
+        <h2>Контент вкладки 4</h2>
+        <p>For example</p>
+    </div>
+
+</div>
+
+<h2>Контент вкладки 1</h2>
+    <p>Hello<a href="#" title="Текст подсказки">how are you</a>sss</p>
+
+<ul id="sort" class="list-group">
+    <li class="list-group-item"><a href="#">item 1</a></li>
+    <li class="list-group-item"><a href="#">item 2</a></li>
+    <li class="list-group-item"><a href="#">item 3</a></li>
+    <li class="list-group-item"><a href="#">item 4</a></li>
+    <li class="list-group-item"><a href="#">item 5</a></li>
+</ul>
+
+<div id="draggable">
+    <p>This moveble block</p>
+</div>
+
+
+
+
+
+
 
 
 
@@ -71,22 +187,76 @@ $("#search").autocomplete({
 });
 });
 
+//Код для реализации виджета календаря
 $(function(){
-    $("#kal").datepicker();
-})
+    $("#kal").datepicker({
+        dateFormat: "dd-mm-yy"
+    });
+});
 
+//Код для виджета модального окна
+$(function(){
+    $("#dialog").dialog({
+        autoOpen : false,
+        show : {effect: "scale", duration : 800},
+        hide : {effect : "drop", duration : 800}
+    });
 
+    $("#open").click(function(){
+        $("#dialog").dialog("open"); 
+    });
 
+});
 
+//Код для виджета select
+$(function(){
+    $("#sel").selectmenu();
+});
 
+//Код для виджета Menu
+$(function(){
+    $("#menu").menu();
+});
 
+//Код для виджета Slider
+$(function(){
+    $("#slider").slider({
+        range : true,
+        min : 0,
+        max : 1000,
+        step : 10,
+        values : [50, 700],
+        slide : function(event, ui){
+            $("#start").val(ui.values[0]);
+            $("#end").val(ui.values[1]);
+        }
+    });
 
+    $("#start").val($("#slider").slider("values", 0));
+    $("#end").val($("#slider").slider("values", 1));
 
+});
 
+//Код для виджета tabs (вкладки)
+$(function(){
+    $("#tabs").tabs({
+        show : {effect : "fade", duration : 300},
+        hide : {effect : "fade", duration : 300}
+    });
+});
 
+//Код для tooltip (подсказки пользователю)
+$("td.td_top a").tooltip();
 
+//Код для плагина sortable (перетаскивание элементов)
+$(function(){
+    $("#sort").sortable();
+});
 
-
+// Код для плагина Draggable (перетаскивание элементов)
+$(function(){
+    $("#draggable").draggable();
+});
 
 
 

@@ -1,0 +1,102 @@
+<html>
+    <head>
+        <title>lr4</title>
+        <meta charset="utf8">
+        <!--Подключение стилей и скриптов библиотеки jQuery UI -->
+        <link rel="stylesheet" href="ui/jquery-ui.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script src="ui/jquery-ui.js"></script>
+
+    </head>
+<body>
+
+<div class="containter content">
+    <div id="accordion">
+        <h3>Секция 1</h3>
+        <div>
+            <p>Lorem1</p>
+        </div>
+
+        <h3>Секция 2</h3>
+        <div>
+            <p>Lorem2</p>
+        </div>
+
+        <h3>Секция 3</h3>
+        <div>
+            <p>Lorem3</p>
+            <li>1 пункт</li>
+            <li>2 пункт</li>
+            <li>3 пункт</li>
+        </div>
+    </div>
+</div>
+ 
+<form class="form-inline">
+    <div class="form-group">
+        <label for="search">Поиск: </label>
+        <input type="text" class="form-control" id="search">
+    </div>
+</form>
+
+<p>Date : <input type="text" id="kal"></p>
+
+
+
+
+
+<script>
+//Код для реализации аккордеона со свойством collapsible, т.е. возможность сворачивать активное окно
+$(function(){
+    $("#accordion").accordion({collapsible : true});
+})
+
+//Код для реализации асинхронного поиска при вводе знака
+$(function(){
+    var avTags = [
+        "ActionScript",
+        "AppleScript",
+        "Asp",
+        "BASIC",
+        "C",
+        "C++",
+        "COBOL",
+        "Java",
+        "JavaScript"
+    ];
+
+$("#search").autocomplete({
+    source : avTags,
+    minLength : 3
+});
+});
+
+$(function(){
+    $("#kal").datepicker();
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+</body>
+</html>

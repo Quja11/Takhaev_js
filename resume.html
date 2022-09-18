@@ -1,0 +1,274 @@
+<html>
+    <head>
+        <title>lr4</title>
+        <meta charset="utf8">
+        <!--Подключение стилей и скриптов библиотеки jQuery UI -->
+        <link rel="stylesheet" href="ui/jquery-ui.css">
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script src="ui/jquery-ui.js"></script>
+        
+        <style>
+            body{
+                background-color: antiquewhite;
+            }
+
+        </style>
+    </head>
+<body>
+    <!--Табы вакансий-->
+    <div id="tabs">
+        <h3>Сферы: </h3>
+        <ul>
+            <li><a href="#tabs1">IT</a></li>
+            <li><a href="#tabs2">Медицина</a></li>
+            <li><a href="#tabs3">Юриспруденция</a></li>
+            <li><a href="#tabs4">Продажи</a></li>
+        </ul>
+    
+        <div id="tabs1">
+            <h2>Список доступных вакансий</h2>
+            <p>Junior - программист</p>
+            <p>Middle - программист</p>
+            <p>Senjor - программист</p>
+            <button class="v">Откликнуться</button>
+        </div>
+    
+        <div id="tabs2">
+            <h2>Список доступных вакансий</h2>
+            <p>Врач - терапевт</p>
+            <p>Врач - хирург</p>
+            <p>Врач - окулист</p>
+            <button class="v">Откликнуться</button>
+        </div>
+    
+        <div id="tabs3">
+            <h2>Список доступных вакансий</h2>
+            <p>Юрист</p>
+            <p>Юрист - консультант</p>
+            <p>Адвокат</p>
+            <button class="v">Откликнуться</button>
+        </div>
+    
+        <div id="tabs4">
+            <h2>Список доступных вакансий</h2>
+            <p>Менеджер</p>
+            <p>Бухгалтер</p>
+            <p>Продавец</p>
+            <button class="v">Откликнуться</button>
+        </div>
+    </div>
+
+    <!--Описание сфер-->
+        <h3>Описание сфер вакансий: </h3>
+        <div id="accordion">
+            <h3><a href="#" title="Инфо об IT">IT</a></h3>
+            <div>
+                <p>Информацио́нные техноло́гии (ИТ, также — информационно-коммуникационные технологии) — процессы, методы поиска, сбора, хранения, обработки, предоставления, распространения информации и способы осуществления таких процессов и методов</p>
+            </div>
+    
+            <h3><a href="#" title="Инфо об медицине">Медицина</a></h3>
+            <div>
+                <p>Система научных знаний и практической деятельности, целями которой являются укрепление и сохранение здоровья, продление жизни, предупреждение и лечение болезней человека и животных, а также облегчения страданий от физических и психических недугов.</p>
+            </div>
+    
+            <h3><a href="#" title="Инфо об юриспруденции">Юриспруденция</a></h3>
+            <div>
+                <p>Наука, изучающая свойства государства и права; совокупность правовых знаний; практическая деятельность юристов и система их подготовки. Юриспруденция как наука возникла в Античности.</p>
+            </div>
+
+            <h3><a href="#" title="Инфо об продажах">Продажи</a></h3>
+            <div>
+                <p>Деятельность, связанная с продажей или количеством товаров, проданных за данный целевой период времени</p>
+            </div>
+        </div><br>
+
+    <!--Модальное окно формы-->
+    <div id="dialog">
+        <form id="user1" action="#">
+            <p>Введите ФИО: <input type="text"></p>
+            <p>Введите дату вашего рождения : <input type="text" id="cal"></p>
+            <p>Введите номер телефона:  <input type="text"></p>
+            <p><label for="search">Поиск вакансии: </label>
+               <input type="text" class="form-control" id="search">
+            </p>
+            <button type="reset">Очистить</button>
+            <button type="submit" id="sub">Отправить</button>
+        </form>
+
+    <!--Ползунок (слайдер)-->
+    <div class="col">
+        <form class="form-inline">
+
+            <div class="form-group">
+                <label for="start">Min зарплата</label>
+                <input type="text" class="form-control" id="start">
+            </div>
+
+            <div class="form-group">
+                <label for="end">Max зарплата</label>
+                <input type="text" class="form-control" id="end">
+            </div>
+
+        </form>
+        <div id="slider"></div>
+    </div>
+    </div>
+
+    <!--Модальное окно типа confirm-->
+    <div id="conf">
+        <p>Вы уверены?</p>
+        <button id="ye">Да</button>
+        <button id="not">Нет</button>
+    </div>
+
+    <!--Модальное окно типа alert-->
+    <div id="al">
+        <div>Ваша заявка успешно подана!</div>
+    </div>
+
+    
+
+<script>
+    $(document).ready(function(){
+
+    //Код для табов
+    $(function(){
+    $("#tabs").tabs({
+        show : {effect : "fade", duration : 300},
+        hide : {effect : "fade", duration : 300}
+        });
+    });
+
+    //Код для скрытия/показа формы при нажатии на кнопку
+    $(function(){
+        $("#user1").hide();
+    })
+
+    $(".v").click(function(){
+        $("#user1").show(300);
+    })
+
+    //Код для реализации виджета календаря
+    $(function(){
+        $("#cal").datepicker({dateFormat : "dd-mm-yy"});
+    });
+
+    //Код для реализации аккордеона со свойством collapsible, т.е. возможность сворачивать активное окно
+    $(function(){
+        $("#accordion").accordion({
+            collapsible : true,
+            active : false
+        });
+    });
+
+    //Код для tooltip (подсказки пользователю)
+    $("td.td_top a").tooltip();
+
+    //Код для реализации асинхронного поиска при вводе знака
+    $(function(){
+        var tags = [
+            "Middle - программист",
+            "Junior - программист",
+            "Senjor - программист",
+            "Врач - терапевт",
+            "Врач - хирург",
+            "Врач - окулист",
+            "Юрист",
+            "Юрист - консультант",
+            "Адвокат",
+            "Менеджер",
+            "Бухгалтер",
+            "Продавец"
+        ];
+
+    $("#search").autocomplete({
+        appendTo : "#user1",
+        source : tags,
+        minLength : 3
+    });
+    });
+
+    //Код для модального окна формы
+    $(function(){
+    $("#dialog").dialog({
+        autoOpen : false,
+        title : "Форма заявки",
+        show : {effect: "scale", duration : 800},
+        hide : {effect : "drop", duration : 800},
+        height : 800,
+        width : 800,
+        resizable : false
+    });
+
+    $(".v").click(function(){
+        $("#dialog").dialog("open"); 
+    });
+    });
+
+    //Код для модального окна типа Confirm и Alert
+    $(function(){
+    $("#conf").dialog({
+        autoOpen : false,
+        title : "Подтверждение",
+        show : {effect: "scale", duration : 600},
+        hide : {effect : "drop", duration : 200},
+        height : 150,
+        width : 250,
+        resizable : false
+    });
+
+    $("#al").dialog({
+        autoOpen : false,
+        title : "Поздравляем",
+        show : {effect: "scale", duration : 600},
+        hide : {effect : "drop", duration : 200},
+        height : 150,
+        width : 250,
+        resizable : false
+    });
+
+    //Код для кнопки submit
+    $("#sub").click(function(){
+        $("#conf").dialog("open"); 
+    });
+    
+    //Код кнопки нет
+    $("#not").click(function(){
+        $("#conf").dialog("close"); 
+    });
+
+    //Код кнопки да
+    $("#ye").click(function(){
+        $("#dialog").dialog("close");
+        $("#conf").dialog("close");
+        $("#al").dialog("open");
+    });
+    });
+
+    //Код ползунка (слайдера)
+    $(function(){
+    $("#slider").slider({
+        range : true,
+        min : 15000,
+        max : 90000,
+        step : 1000,
+        values : [15000, 15000],
+        slide : function(event, ui){
+            $("#start").val(ui.values[0]);
+            $("#end").val(ui.values[1]);
+        }
+        
+    });
+
+    $("#start").val($("#slider").slider("values", 0));
+    $("#end").val($("#slider").slider("values", 1));
+
+    });
+
+
+
+});
+</script>
+</body>
+</html>

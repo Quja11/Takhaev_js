@@ -4,13 +4,11 @@
         <meta charset="utf8">
         <!--Подключение стилей и скриптов библиотеки jQuery UI -->
         <link rel="stylesheet" href="ui/jquery-ui.css">
+
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
         <script src="ui/jquery-ui.js"></script>
-
-
-
-
-
+        
+        
 
         <style>
             .ui-menu { width: 150px; } 
@@ -155,12 +153,6 @@
 
 
 
-
-
-
-
-
-
 <script>
 //Код для реализации аккордеона со свойством collapsible, т.е. возможность сворачивать активное окно
 $(function(){
@@ -253,10 +245,20 @@ $(function(){
     $("#sort").sortable();
 });
 
-// Код для плагина Draggable (перетаскивание элементов)
+//Код для плагина Draggable (перетаскивание элементов)
 $(function(){
     $("#draggable").draggable();
 });
+
+//Код для реализации карусели
+$(function() {
+    $('.jcarousel').jcarousel({
+        // Configuration goes here
+    });
+});
+
+
+
 
 
 

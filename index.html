@@ -1,0 +1,71 @@
+<html>
+    <head>
+        <title>lr4</title>
+        <meta charset="utf8">
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script src="myPlugin.js"></script>
+
+    </head>
+<body>
+
+<table border="15px" bgcolor="orange" height="200px" width="600px">
+    <tr>
+        <td><input type="text" value="1"></td>
+        <td><input type="text" value="2"></td>
+        <td><input type="text" value="3"></td>
+        <td><input type="text" value="4"></td>
+    </tr>
+
+    <tr>
+        <td><input type="text" value="5"></td>
+        <td><input type="text" value="6"></td>
+        <td><input type="text" value="7"></td>
+        <td><input type="text" value="8"></td>
+    </tr>
+
+    <tr>
+        <td>8</td>
+        <td>10</td>
+        <td>11</td>
+        <td>12</td>
+    </tr>
+
+    <tr>
+        <td>13</td>
+        <td>14</td>
+        <td>15</td>
+        <td>16</td>
+    </tr>
+</table>
+
+<button id="man" value="heello">клик</button>
+<p class="h">hello</p>
+<p class="h">hello1</p>
+<p class="h">hello2</p>
+<p class="h">hello32</p>
+
+
+<script>
+    //$( "a" ).showLinkLocation();
+    var ich = document.getElementsByTagName("input");
+    
+    $(":input").click(function(){
+        var x = 55;
+        $(":input").myPlugin({value : x});
+
+
+
+    });
+        
+
+    
+
+    
+    
+
+
+
+</script>
+</body>
+</html>

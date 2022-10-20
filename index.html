@@ -1,71 +1,51 @@
-<html>
-    <head>
-        <title>lr4</title>
-        <meta charset="utf8">
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Крестики-нолики</title>
+  </head>
+  <body>
+    <div class="flex">
+      <div class="wrap">
+        <h1>Крестики-нолики</h1>
+        <label for="input">Размер карты</label>
+        <input type="number" min="0" id="input" value=5/>
 
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-        <script src="myPlugin.js"></script>
-
-    </head>
-<body>
-
-<table border="15px" bgcolor="orange" height="200px" width="600px">
-    <tr>
-        <td><input type="text" value="1"></td>
-        <td><input type="text" value="2"></td>
-        <td><input type="text" value="3"></td>
-        <td><input type="text" value="4"></td>
-    </tr>
-
-    <tr>
-        <td><input type="text" value="5"></td>
-        <td><input type="text" value="6"></td>
-        <td><input type="text" value="7"></td>
-        <td><input type="text" value="8"></td>
-    </tr>
-
-    <tr>
-        <td>8</td>
-        <td>10</td>
-        <td>11</td>
-        <td>12</td>
-    </tr>
-
-    <tr>
-        <td>13</td>
-        <td>14</td>
-        <td>15</td>
-        <td>16</td>
-    </tr>
-</table>
-
-<button id="man" value="heello">клик</button>
-<p class="h">hello</p>
-<p class="h">hello1</p>
-<p class="h">hello2</p>
-<p class="h">hello32</p>
-
-
-<script>
-    //$( "a" ).showLinkLocation();
-    var ich = document.getElementsByTagName("input");
-    
-    $(":input").click(function(){
-        var x = 55;
-        $(":input").myPlugin({value : x});
-
-
-
-    });
-        
-
-    
-
-    
-    
-
-
-
-</script>
-</body>
+        <span class="invalid"></span>
+        <button class="btn">Начать игру</button>
+      </div>
+      <div class="line"></div>
+      <div>
+        <div id="player">Ходит игрок:</div>
+        <canvas id="canvas"></canvas>
+      </div>
+    </div>
+    <div id="modal" class="hidden">
+      <div id="modal__window">
+        <h2 id="modal__descr"></h2>
+      </div>
+    </div>
+	<button class="bt1">Завершить раунд</button>
+	<button class="bt2">Завершить игру</button>
+    <script src="script.js"></script>
+	<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+	<style>
+	 body {
+	 background-color: lightblue;
+	 font-family:cursive;
+	 }
+	 canvas {
+	 background-color: lightgrey;
+	 }
+	 button {
+	 border: 2px solid #9bbec9;
+	 border-radius: 10%;
+	 background-color: #6a97a6;
+	 font-family:cursive;
+	 }
+	</style>
+  </body>
 </html>
